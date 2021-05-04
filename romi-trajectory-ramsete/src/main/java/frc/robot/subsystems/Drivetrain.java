@@ -159,6 +159,7 @@ public class Drivetrain extends SubsystemBase {
   public void periodic() {
     // Update the odometry in the periodic block
     m_odometry.update(m_gyro.getRotation2d(), m_leftEncoder.getDistance(), m_rightEncoder.getDistance());
+    System.out.println(m_odometry.getPoseMeters());
     
     // Also update the Field2D object (so that we can visualize this in sim)
     m_field2d.setRobotPose(getPose());
