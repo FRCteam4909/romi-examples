@@ -18,12 +18,18 @@ import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
  */
 public final class Constants {
   public static final class DriveConstants {
-    public static final double ksVolts = 0.929; //0.929 .1
-    public static final double kvVoltSecondsPerMeter = 6.33; //6.33 18.7
-    public static final double kaVoltSecondsSquaredPerMeter = 0.0398; //0.0389 0.0298
+    //The following are based on a mix of the template values and Robot characterization values
+    //Static gain
+    public static final double ksVolts = 0.929; 
+    //Velocity Gain
+    public static  final double kvVoltSecondsPerMeter = 6.33;
+    //Acceleration gain
+    public static final double kaVoltSecondsSquaredPerMeter = 0.0398;
 
-    public static final double kPDriveVel = 5.95; //0.085 3.89E-6
-
+    //P value for ramsete PID controller
+    public static final double kPDriveVel = 5.95;
+    // The theoretical distance between the axisies of the two wheels on one axel 
+    //ie. the distance between the two wheels of the robot.
     public static final double kTrackwidthMeters = 0.142072613; //0.142072613 0.046020801
     public static final DifferentialDriveKinematics kDriveKinematics =
         new DifferentialDriveKinematics(kTrackwidthMeters);
@@ -34,7 +40,9 @@ public final class Constants {
     public static final double kMaxAccelerationMetersPerSecondSquared = 0.8;
 
     // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
+    //b values (> 0) adds to the turning of the robot like a proportional (P) constant
     public static final double kRamseteB = 2;
+    //Dampens the b term and the greater the zeta (0 < zeta < 1) the greater the dampening.
     public static final double kRamseteZeta = 0.7;
   }
 }
